@@ -1,12 +1,14 @@
 from linalg.matrix import Matrix
 from linalg.vector import Vector
-import sys
+from linalg.logger import Logger
+logger = Logger()
+
 
 def main():
 
-    print("\n" + "#" * 60)
-    print("#                 EX07 - Matrix multiplication             #")
-    print("#" * 60)
+    logger.info("#" * 60)
+    logger.info("#                 EX07 - Matrix multiplication             #")
+    logger.info("#" * 60)
 
     u = Matrix([
         [1., 0.],
@@ -14,7 +16,7 @@ def main():
     ])
 
     v = Vector([4., 2.])
-    print(f"{u.ft_mul_vect(v)}")
+    logger.info(f"{u.ft_matmul_vect(v)}")
 
     u = Matrix([
         [2., 0.],
@@ -22,7 +24,7 @@ def main():
     ])
 
     v = Vector([4., 2.])
-    print(f"{u.ft_mul_vect(v)}")
+    logger.info(f"{u.ft_matmul_vect(v)}")
 
     u = Matrix([
         [2., -2.],
@@ -30,7 +32,7 @@ def main():
     ])
 
     v = Vector([4., 2.])
-    print(f"{u.ft_mul_vect(v)}")
+    logger.info(f"{u.ft_matmul_vect(v)}")
 
     u = Matrix([
         [1., 0.],
@@ -41,7 +43,7 @@ def main():
         [1., 0.],
         [0., 1.]
     ])
-    print(f"{u.ft_mul_matrix(v)}")
+    logger.info(f"{u.ft_matmul_matrix(v)}")
 
     u = Matrix([
         [1., 0.],
@@ -52,7 +54,7 @@ def main():
         [2., 1.],
         [4., 2.]
     ])
-    print(f"{u.ft_mul_matrix(v)}")
+    logger.info(f"{u.ft_matmul_matrix(v)}")
 
     u = Matrix([
         [3., -5.],
@@ -63,15 +65,11 @@ def main():
         [2., 1.],
         [4., 2.]
     ])
-    print(f"{u.ft_mul_matrix(v)}")
+    logger.info(f"{u.ft_matmul_matrix(v)}")
 
-
-
-    print("\n" + "#" * 60)
-    print("#                   END OF EX07                        #")
-    print("#" * 60)
-
-
+    logger.info("#" * 60)
+    logger.info("#                   END OF EX07                        #")
+    logger.info("#" * 60)
 
 
 if __name__ == "__main__":

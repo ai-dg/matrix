@@ -1,29 +1,30 @@
 from linalg.matrix import Matrix
-import sys
+from linalg.logger import Logger
+logger = Logger()
+
 
 def main():
 
-    print("\n" + "#" * 60)
-    print("#                 EX09 - Transpose             #")
-    print("#" * 60)
+    logger.info("#" * 60)
+    logger.info("#                 EX09 - Transpose             #")
+    logger.info("#" * 60)
 
-    print("\n" + "#" * 20 + " 1 " + "#" * 20)
+    logger.info("#" * 20 + " 1 " + "#" * 20)
     u = Matrix([
         [1., 0.],
         [0., 1.]
     ])
 
-  
-    print(f"{u.ft_transpose()}")
+    logger.info(f"{u.ft_transpose()}")
 
     u = Matrix([
         [1., 2.],
         [3., 1.]
     ])
 
-    print("\n" + "#" * 20 + " 2 " + "#" * 20)
+    logger.info("#" * 20 + " 2 " + "#" * 20)
 
-    print(f"{u.ft_transpose()}")
+    logger.info(f"{u.ft_transpose()}")
 
     u = Matrix([
         [2., -5., 0.],
@@ -31,10 +32,9 @@ def main():
         [-2., 3., 4.]
     ])
 
-    print("\n" + "#" * 20 + " 3 " + "#" * 20)
+    logger.info("#" * 20 + " 3 " + "#" * 20)
 
-
-    print(f"{u.ft_transpose()}")
+    logger.info(f"{u.ft_transpose()}")
 
     u = Matrix([
         [2., -8., 4.],
@@ -42,17 +42,13 @@ def main():
         [0., 6., 4.]
     ])
 
-    print("\n" + "#" * 20 + " 4 " + "#" * 20)
+    logger.info("#" * 20 + " 4 " + "#" * 20)
 
-    print(f"{u.ft_transpose()}")
+    logger.info(f"{u.ft_transpose()}")
 
-
-
-    print("\n" + "#" * 60)
-    print("#                   END OF EX09                        #")
-    print("#" * 60)
-
-
+    logger.info("#" * 60)
+    logger.info("#                   END OF EX09                        #")
+    logger.info("#" * 60)
 
 
 if __name__ == "__main__":

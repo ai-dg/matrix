@@ -1,14 +1,16 @@
-from linalg.matrix import Matrix
 from linalg.vector import Vector
 import sys
+from linalg.logger import Logger
+logger = Logger()
+
 
 def ft_dot(u, v):
     if not isinstance(u, Vector) or not isinstance(v, Vector):
-        print("Error: dot expects two Vectors")
+        logger.error("dot expects two Vectors")
         sys.exit(1)
 
     if u.shape != v.shape:
-        print("Error: vectors must have same shape")
+        logger.error("Vectors must have same shape")
         sys.exit(1)
 
     result = 0.0
@@ -21,41 +23,38 @@ def ft_dot(u, v):
 
 def main():
 
-    print("\n" + "#" * 60)
-    print("#                 EX03 - Dot product             #")
-    print("#" * 60)
+    logger.info("#" * 60)
+    logger.info("#                 EX03 - Dot product             #")
+    logger.info("#" * 60)
 
     u = Vector([0., 0.])
     v = Vector([1., 1.])
 
-    print("\n" + "#" * 20 + " First " + "#" * 20)
+    logger.info("#" * 20 + " First " + "#" * 20)
 
-    print(f"u * v: \n{u * v}")
-    print(f"u * v: \n{u.__mul__(v)}")
-    print(f"u * v: \n{ft_dot(u, v)}")
+    logger.info("[u @ b]")
+    logger.info(f"u @ v: \n{u @ v}")
+    logger.info(f"u @ v: \n{u.__matmul__(v)}")
+    logger.info(f"u @ v: \n{ft_dot(u, v)}")
 
     u = Vector([1., 1.])
     v = Vector([1., 1.])
 
-    print("\n" + "#" * 20 + " Second " + "#" * 20)
-    print(f"u * v: \n{u * v}")
-    print(f"u * v: \n{u.__mul__(v)}")
-    print(f"u * v: \n{ft_dot(u, v)}")
+    logger.info("#" * 20 + " Second " + "#" * 20)
+    logger.info(f"u @ v: \n{u @ v}")
+    logger.info(f"u @ v: \n{u.__matmul__(v)}")
+    logger.info(f"u @ v: \n{ft_dot(u, v)}")
 
-
-
-    print("\n" + "#" * 20 + " Third " + "#" * 20)
+    logger.info("#" * 20 + " Third " + "#" * 20)
     u = Vector([-1., 6.])
     v = Vector([3., 2.])
-    print(f"u * v: \n{u * v}")
-    print(f"u * v: \n{u.__mul__(v)}")
-    print(f"u * v: \n{ft_dot(u, v)}")
+    logger.info(f"u @ v: \n{u @ v}")
+    logger.info(f"u @ v: \n{u.__matmul__(v)}")
+    logger.info(f"u @ v: \n{ft_dot(u, v)}")
 
-    print("\n" + "#" * 60)
-    print("#                   END OF EX03                        #")
-    print("#" * 60)
-
-
+    logger.info("#" * 60)
+    logger.info("#                   END OF EX03                        #")
+    logger.info("#" * 60)
 
 
 if __name__ == "__main__":

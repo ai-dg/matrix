@@ -1,24 +1,23 @@
 from linalg.matrix import Matrix
-from linalg.vector import Vector
-import sys
+from linalg.logger import Logger
+logger = Logger()
+
 
 def main():
 
-    print("\n" + "#" * 60)
-    print("#                 EX08 - Trace             #")
-    print("#" * 60)
+    logger.info("#" * 60)
+    logger.info("#                 EX08 - Trace             #")
+    logger.info("#" * 60)
 
-
-    print("\n" + "#" * 20 + " 1 " + "#" * 20)
+    logger.info("#" * 20 + " 1 " + "#" * 20)
     u = Matrix([
         [1., 0.],
         [0., 1.]
     ])
 
-  
-    print(f"{u.ft_trace()}")
+    logger.info(f"{u.ft_trace()}")
 
-    print("\n" + "#" * 20 + " 2 " + "#" * 20)
+    logger.info("#" * 20 + " 2 " + "#" * 20)
 
     u = Matrix([
         [2., -5., 0.],
@@ -26,10 +25,9 @@ def main():
         [-2., 3., 4.]
     ])
 
+    logger.info(f"{u.ft_trace()}")
 
-    print(f"{u.ft_trace()}")
-
-    print("\n" + "#" * 20 + " 3 " + "#" * 20)
+    logger.info("#" * 20 + " 3 " + "#" * 20)
 
     u = Matrix([
         [2., -8., 4.],
@@ -37,15 +35,11 @@ def main():
         [0., 6., 4.]
     ])
 
-    print(f"{u.ft_trace()}")
+    logger.info(f"{u.ft_trace()}")
 
-
-
-    print("\n" + "#" * 60)
-    print("#                   END OF EX08                        #")
-    print("#" * 60)
-
-
+    logger.info("#" * 60)
+    logger.info("#                   END OF EX08                        #")
+    logger.info("#" * 60)
 
 
 if __name__ == "__main__":
