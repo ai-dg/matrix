@@ -16,6 +16,7 @@ def main():
         [0., 0., 1.]
     ])
 
+    logger.info(f"\n{u.ft_row_echelon()}")
     logger.info(f"{u.ft_rank()}")
 
     logger.info("#" * 20 + " 2 " + "#" * 20)
@@ -25,6 +26,7 @@ def main():
         [-1., 2., 1., 1.]
     ])
 
+    logger.info(f"\n{u.ft_row_echelon()}")
     logger.info(f"{u.ft_rank()}")
 
     logger.info("#" * 20 + " 3 " + "#" * 20)
@@ -35,6 +37,7 @@ def main():
         [21., 18., 7.]
     ])
 
+    logger.info(f"\n{u.ft_row_echelon()}")
     logger.info(f"{u.ft_rank()}")
 
     logger.info("#" * 60)

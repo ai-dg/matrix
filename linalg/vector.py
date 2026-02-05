@@ -197,18 +197,16 @@ class Vector:
             logger.error(f"vectors must have the same shape, got {self.shape} and {other.shape}")
             sys.exit(1)
 
-        mult = 0.0
+        result = 0.0
 
-        # column vector (n,1)
         if self.shape[1] == 1:
             for i in range(self.shape[0]):
-                mult += self.data[i][0] * other.data[i][0]
-            return mult
+                result += self.data[i][0] * other.data[i][0]
+            return result
 
-        # row vector (1,n)
         for j in range(self.shape[1]):
-            mult += self.data[0][j] * other.data[0][j]
-        return mult
+            result += self.data[0][j] * other.data[0][j]
+        return result
 
 
 
@@ -234,24 +232,24 @@ class Vector:
     def ft_matmul_matrix(self, other):
         from linalg.matrix import Matrix
         if not isinstance(other, Matrix):
-            logger.error("multiplication expects a Matrix")
+            logger.error("resultiplication expects a Matrix")
             sys.exit(1)
 
-        if self.shape[1] != other.shape[0]:
-            print(
-                f"Error: matrix columns ({self.shape[1]}) "
-                f"must match matrix rows ({other.shape[0]})"
-            )
-            sys.exit(1)
+        # if self.shape[1] != other.shape[0]:
+        #     logger.error(
+        #         f"Error: matrix columns ({self.shape[1]}) "
+        #         f"must match matrix rows ({other.shape[0]})"
+        #     )
+        #     sys.exit(1)
 
         result = []
         for i in range(self.shape[0]):
             row = []
             for j in range(other.shape[1]):
-                mult = 0.0
+                result = 0.0
                 for k in range(self.shape[1]):
-                    mult += self.data[i][k] * other.data[k][j]
-                row.append(mult)
+                    result += self.data[i][k] * other.data[k][j]
+                row.append(result)
             result.append(row)
 
         return Matrix(result)
@@ -322,7 +320,7 @@ class Vector:
         if isinstance(other, Vector):
             return self.ft_mul_vector(other)
 
-        logger.error("invalid multiplication")
+        logger.error("invalid resultiplication")
         sys.exit(1)
 
 
@@ -330,13 +328,17 @@ class Vector:
         if isinstance(other, (int, float)):
             return self.ft_scale_vector(other)
 
-        logger.error("invalid reverse multiplication")
+        logger.error("invalid reverse resultiplication")
         sys.exit(1)
 
 
     def __matmul__(self, other):
+        from linalg.matrix import Matrix
         if isinstance(other, Vector):
             return self.ft_matmul_vector(other)
+        
+        if isinstance(other, Matrix):
+            return self.ft_matmul_matrix(other)
 
         logger.error("invalid @ operation")
         sys.exit(1)

@@ -313,6 +313,7 @@ class Matrix:
 
 
     def __matmul__(self, other):
+        from linalg.vector import Vector
         if isinstance(other, Vector):
             return self.ft_matmul_vect(other)
 
@@ -358,46 +359,46 @@ class Matrix:
         for pivot_col in range(n):
             if pivot_row >= m:
                 break
-            best = pivot_row
-            best_abs = abs(A[best][pivot_col])
-            for r in range(pivot_row + 1, m):
-                v = abs(A[r][pivot_col])
-                if v > best_abs:
-                    best_abs = v
-                    best = r
+            best_row = pivot_row
+            best_abs = abs(A[best_row][pivot_col])
+            for row in range(pivot_row + 1, m):
+                value = abs(A[row][pivot_col])
+                if value > best_abs:
+                    best_abs = value
+                    best_row = row
 
             if best_abs < eps:
                 continue
 
-            if best != pivot_row:
-                A[pivot_row], A[best] = A[best], A[pivot_row]
+            if best_row != pivot_row:
+                A[pivot_row], A[best_row] = A[best_row], A[pivot_row]
 
             pivot = A[pivot_row][pivot_col]
             inv = 1.0 / pivot
-            for c in range(pivot_col, n):
-                A[pivot_row][c] *= inv
+            for col in range(pivot_col, n):
+                A[pivot_row][col] *= inv
 
-            for r in range(pivot_row + 1, m):
-                factor = A[r][pivot_col]
+            for row in range(pivot_row + 1, m):
+                factor = A[row][pivot_col]
                 if abs(factor) < eps:
-                    A[r][pivot_col] = 0.0
+                    A[row][pivot_col] = 0.0
                     continue
-                A[r][pivot_col] = 0.0
-                for c in range(pivot_col + 1, n):
-                    A[r][c] -= factor * A[pivot_row][c]
+                A[row][pivot_col] = 0.0
+                for col in range(pivot_col + 1, n):
+                    A[row][col] -= factor * A[pivot_row][col]
 
             pivots.append((pivot_row, pivot_col))
             pivot_row += 1
 
-        for pr, pc in reversed(pivots):
-            for r in range(pr - 1, -1, -1):
-                factor = A[r][pc]
+        for pivot_row, pivot_col in reversed(pivots):
+            for row in range(pivot_row - 1, -1, -1):
+                factor = A[row][pivot_col]
                 if abs(factor) < eps:
-                    A[r][pc] = 0.0
+                    A[row][pivot_col] = 0.0
                     continue
-                A[r][pc] = 0.0
-                for c in range(pc + 1, n):
-                    A[r][c] -= factor * A[pr][c]
+                A[row][pivot_col] = 0.0
+                for col in range(pivot_col + 1, n):
+                    A[row][col] -= factor * A[pivot_row][col]
 
         return Matrix(A)
 
@@ -451,9 +452,9 @@ class Matrix:
             sys.exit(1)
 
 
-        n = self.shape[0]
-
+        m, n = self.shape
         aug = []
+        
         for i in range(n):
             row = self.data[i][:]
             identity_part = [0.0] * n
@@ -464,37 +465,37 @@ class Matrix:
         for pivot_col in range(n):
 
             pivot_row = pivot_col
-            best = pivot_row
-            best_abs = abs(aug[best][pivot_col])
-            for r in range(pivot_row + 1, n):
-                v = abs(aug[r][pivot_col])
-                if v > best_abs:
-                    best_abs = v
-                    best = r
+            best_row = pivot_row
+            best_abs = abs(aug[best_row][pivot_col])
+            for row in range(pivot_row + 1, n):
+                value = abs(aug[row][pivot_col])
+                if value > best_abs:
+                    best_abs = value
+                    best_row = row
 
             if best_abs < eps:
                 logger.error("Matrix is singular (no inverse)")
                 sys.exit(1)
 
-            if best != pivot_row:
-                aug[pivot_row], aug[best] = aug[best], aug[pivot_row]
+            if best_row != pivot_row:
+                aug[pivot_row], aug[best_row] = aug[best_row], aug[pivot_row]
 
             pivot = aug[pivot_row][pivot_col]
             inv_pivot = 1.0 / pivot
-            for c in range(2 * n):
-                aug[pivot_row][c] *= inv_pivot
+            for col in range(2 * n):
+                aug[pivot_row][col] *= inv_pivot
 
-            for r in range(n):
-                if r == pivot_row:
+            for row in range(n):
+                if row == pivot_row:
                     continue
-                factor = aug[r][pivot_col]
+                factor = aug[row][pivot_col]
                 if abs(factor) < eps:
-                    aug[r][pivot_col] = 0.0
+                    aug[row][pivot_col] = 0.0
                     continue
 
-                aug[r][pivot_col] = 0.0
-                for c in range(pivot_col + 1, 2 * n):
-                    aug[r][c] -= factor * aug[pivot_row][c]
+                aug[row][pivot_col] = 0.0
+                for col in range(pivot_col + 1, 2 * n):
+                    aug[row][col] -= factor * aug[pivot_row][col]
 
         inv = []
         for i in range(n):

@@ -15,7 +15,7 @@ def main():
         [0., 1.]
     ])
 
-    logger.info(f"{u.ft_transpose()}")
+    logger.info(f"\n{u.ft_transpose()}")
 
     u = Matrix([
         [1., 2.],
@@ -24,7 +24,7 @@ def main():
 
     logger.info("#" * 20 + " 2 " + "#" * 20)
 
-    logger.info(f"{u.ft_transpose()}")
+    logger.info(f"\n{u.ft_transpose()}")
 
     u = Matrix([
         [2., -5., 0.],
@@ -34,7 +34,7 @@ def main():
 
     logger.info("#" * 20 + " 3 " + "#" * 20)
 
-    logger.info(f"{u.ft_transpose()}")
+    logger.info(f"\n{u.ft_transpose()}")
 
     u = Matrix([
         [2., -8., 4.],
@@ -44,7 +44,7 @@ def main():
 
     logger.info("#" * 20 + " 4 " + "#" * 20)
 
-    logger.info(f"{u.ft_transpose()}")
+    logger.info(f"\n{u.ft_transpose()}")
 
     logger.info("#" * 60)
     logger.info("#                   END OF EX09                        #")

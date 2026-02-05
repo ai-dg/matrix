@@ -16,7 +16,7 @@ def main():
         [0., 0., 1.]
     ])
 
-    logger.info(f"{u.ft_row_echelon()}")
+    logger.info(f"\n{u.ft_row_echelon()}")
 
     logger.info("#" * 20 + " 2 " + "#" * 20)
     u = Matrix([
@@ -24,7 +24,7 @@ def main():
         [3., 4.],
     ])
 
-    logger.info(f"{u.ft_row_echelon()}")
+    logger.info(f"\n{u.ft_row_echelon()}")
 
     logger.info("#" * 20 + " 3 " + "#" * 20)
     u = Matrix([
@@ -32,7 +32,7 @@ def main():
         [2., 4.],
     ])
 
-    logger.info(f"{u.ft_row_echelon()}")
+    logger.info(f"\n{u.ft_row_echelon()}")
 
     logger.info("#" * 20 + " 4 " + "#" * 20)
     u = Matrix([
@@ -41,7 +41,7 @@ def main():
         [8., 5., 1., 4., 17.],
     ])
 
-    logger.info(f"{u.ft_row_echelon()}")
+    logger.info(f"\n{u.ft_row_echelon()}")
 
     logger.info("#" * 60)
     logger.info("#                   END OF EX10                        #")

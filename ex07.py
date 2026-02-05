@@ -16,7 +16,9 @@ def main():
     ])
 
     v = Vector([4., 2.])
-    logger.info(f"{u.ft_matmul_vect(v)}")
+    logger.info("#" * 20 + " 1 " + "#" * 20)
+    logger.info(f"\n{u.ft_matmul_vect(v)}")
+    logger.info(f"\n{u @ v}")
 
     u = Matrix([
         [2., 0.],
@@ -24,7 +26,9 @@ def main():
     ])
 
     v = Vector([4., 2.])
-    logger.info(f"{u.ft_matmul_vect(v)}")
+    logger.info("#" * 20 + " 2 " + "#" * 20)
+    logger.info(f"\n{u.ft_matmul_vect(v)}")
+    logger.info(f"\n{u @ v}")
 
     u = Matrix([
         [2., -2.],
@@ -32,7 +36,9 @@ def main():
     ])
 
     v = Vector([4., 2.])
-    logger.info(f"{u.ft_matmul_vect(v)}")
+    logger.info("#" * 20 + " 3 " + "#" * 20)
+    logger.info(f"\n{u.ft_matmul_vect(v)}")
+    logger.info(f"\n{u @ v}")
 
     u = Matrix([
         [1., 0.],
@@ -43,7 +49,9 @@ def main():
         [1., 0.],
         [0., 1.]
     ])
-    logger.info(f"{u.ft_matmul_matrix(v)}")
+    logger.info("#" * 20 + " 4 " + "#" * 20)
+    logger.info(f"\n{u.ft_matmul_matrix(v)}")
+    logger.info(f"\n{u @ v}")
 
     u = Matrix([
         [1., 0.],
@@ -54,7 +62,9 @@ def main():
         [2., 1.],
         [4., 2.]
     ])
-    logger.info(f"{u.ft_matmul_matrix(v)}")
+    logger.info("#" * 20 + " 5 " + "#" * 20)
+    logger.info(f"\n{u.ft_matmul_matrix(v)}")
+    logger.info(f"\n{u @ v}")
 
     u = Matrix([
         [3., -5.],
@@ -65,7 +75,9 @@ def main():
         [2., 1.],
         [4., 2.]
     ])
-    logger.info(f"{u.ft_matmul_matrix(v)}")
+    logger.info("#" * 20 + " 6 " + "#" * 20)
+    logger.info(f"\n{u.ft_matmul_matrix(v)}")
+    logger.info(f"\n{u @ v}")
 
     logger.info("#" * 60)
     logger.info("#                   END OF EX07                        #")

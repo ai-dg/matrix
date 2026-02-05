@@ -6,6 +6,27 @@ logger = Logger()
 
 
 def ft_lerp(u, v, t):
+    """
+    Fonction affine: espace d'un espace vectoriel: .
+    une fonction linéaire à laquelle on a ajouté un décalage (une translation)
+    f(0) = 0
+    f(x + y) = f(x) + f(y)
+    f(λx) = λf(x)
+
+    
+    
+    ft(t) = a * t - b ->
+    ft(0) = a * t - b = u
+    f(0) = b = u -> b = u
+    f(1) = a * t + b = v
+    f(1) = a + b = v
+    f(1) = a = v - u
+    f(t) = t(v - u) + u
+    f(t) = u - tu + tv
+
+    (1 - t)u + tv
+    
+    """
     if not isinstance(u, type(v)):
         logger.info(f"u and v are not same type: {type(u)}:{type(v)}")
         sys.exit(1)
@@ -15,7 +36,7 @@ def ft_lerp(u, v, t):
         sys.exit(1)
 
     if isinstance(u, (int, float)) and isinstance(v, (int, float)):
-        return (u * (1 - t)) + (v * t)
+        return (u - (t * u) + (t * v) )
 
     if not isinstance(u, (Vector, Matrix)):
         logger.info("u and v must be scalar, Vector or Matrix")
@@ -25,7 +46,7 @@ def ft_lerp(u, v, t):
         logger.info(f"u and v don't have the same shape: {u.shape}:{v.shape}")
         sys.exit(1)
 
-    return (u * (1 - t)) + (v * t)
+    return (u - (t * u) + (t * v) )
 
 
 def main():

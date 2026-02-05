@@ -16,7 +16,7 @@ def main():
         [0., 0., 1.]
     ])
 
-    logger.info(f"{u.ft_inverse()}")
+    logger.info(f"\n{u.ft_inverse()}")
 
     logger.info("#" * 20 + " 2 " + "#" * 20)
     u = Matrix([
@@ -25,7 +25,7 @@ def main():
         [0., 0., 2.]
     ])
 
-    logger.info(f"{u.ft_inverse()}")
+    logger.info(f"\n{u.ft_inverse()}")
 
     logger.info("#" * 20 + " 3 " + "#" * 20)
     u = Matrix([
@@ -34,7 +34,7 @@ def main():
         [7., 6., 1.]
     ])
 
-    logger.info(f"{u.ft_inverse()}")
+    logger.info(f"\n{u.ft_inverse()}")
 
     logger.info("#" * 60)
     logger.info("#                   END OF EX12                        #")

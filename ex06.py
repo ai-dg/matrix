@@ -41,15 +41,15 @@ def main():
 
     u = Vector([0., 0., 1.])
     v = Vector([1., 0., 0.])
-    logger.info(f"{ft_cross_product(u, v)}")
+    logger.info(f"\n{ft_cross_product(u, v)}")
 
     u = Vector([1., 2., 3.])
     v = Vector([4., 5., 6.])
-    logger.info(f"{ft_cross_product(u, v)}")
+    logger.info(f"\n{ft_cross_product(u, v)}")
 
     u = Vector([4., 2., -3.])
     v = Vector([-2., -5., 16.])
-    logger.info(f"{ft_cross_product(u, v)}")
+    logger.info(f"\n{ft_cross_product(u, v)}")
 
     logger.info("#" * 60)
     logger.info("#                   END OF EX06                        #")
